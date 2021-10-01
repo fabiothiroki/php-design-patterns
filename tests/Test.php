@@ -8,7 +8,7 @@ final class Test extends TestCase
 {
     public function testOutputMessage()
     {
-        require_once '../app/index.php';
+        require_once 'app/index.php';
 
         $this->expectOutputString('Hello world!');
     }
