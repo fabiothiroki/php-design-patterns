@@ -39,7 +39,7 @@ jobs:
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ./vendor/bin/php-coveralls --coverage_clover=coverage.xml -v
+          ./vendor/bin/php-coveralls --coverage_clover=coverage/coverage.xml -v
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
