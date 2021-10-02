@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace creational\prototype;
+namespace app\creational\prototype;
 
 final class Smartphone extends ProductPrototype
 {
