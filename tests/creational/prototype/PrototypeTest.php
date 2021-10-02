@@ -17,6 +17,8 @@ final class PrototypeTest extends TestCase
 
         $clonedSmartphone = clone $smartphone;
 
+        self::assertEquals($clonedSmartphone->getId(), $smartphone->getId());
+        self::assertEquals($clonedSmartphone->getName(), $smartphone->getName());
         self::assertEquals($clonedSmartphone, $smartphone);
     }
 
