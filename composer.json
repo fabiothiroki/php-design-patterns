@@ -1,0 +1,33 @@
+{
+  "name": "fabio.hiroki/php-design-patterns",
+  "description": "A collection of design patterns written in PHP",
+  "authors": [
+    {
+      "name": "Fabio Hiroki",
+      "email": "fabiothiroki@gmail.com"
+    }
+  ],
+  "config": {
+    "platform": {
+      "php": "8.0.10"
+    }
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^0.12.98",
+    "friendsofphp/php-cs-fixer": "^3.1",
+    "phpunit/phpunit": "^9.5",
+    "php-coveralls/php-coveralls": "^2.4"
+  },
+  "license": "MIT",
+  "scripts": {
+    "lint": "./vendor/bin/phpstan analyse -c phpstan.neon",
+    "sniff": "./vendor/bin/php-cs-fixer fix -vvv --dry-run --show-progress=dots app",
+    "test": "./vendor/bin/phpunit tests",
+    "test-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit tests --coverage-clover coverage/coverage.xml"
+  },
+  "autoload": {
+    "classmap": [
+      "app/"
+    ]
+  }
+}
