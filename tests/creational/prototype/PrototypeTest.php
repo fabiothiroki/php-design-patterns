@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace creational\prototype;
 
+use app\creational\prototype\Cart;
+use app\creational\prototype\Laptop;
 use app\creational\prototype\Smartphone;
 use PHPUnit\Framework\TestCase;
 
@@ -16,6 +18,22 @@ final class PrototypeTest extends TestCase
         $clonedSmartphone = clone $smartphone;
 
         self::assertEquals($clonedSmartphone, $smartphone);
+    }
+
+    public function testCartCanAddClonedProducts(): void
+    {
+        $laptop = new Laptop();
+        $cart = new Cart();
+
+        $cart->addProduct($laptop);
+
+        $clonedLaptop = clone $laptop;
+
+        $cart->addProduct($clonedLaptop);
+
+        self::assertCount(2, $cart->getProducts());
+        self::assertEquals($cart->getProducts()[1], $cart->getProducts()[0]);
+        self::assertNotSame($cart->getProducts()[1], $cart->getProducts()[0]);
     }
 }
 
