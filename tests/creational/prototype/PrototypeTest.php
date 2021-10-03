@@ -19,7 +19,9 @@ final class PrototypeTest extends TestCase
 
         self::assertEquals($clonedSmartphone->getId(), $smartphone->getId());
         self::assertEquals($clonedSmartphone->getName(), $smartphone->getName());
+        self::assertEquals($clonedSmartphone->getColor(), $smartphone->getColor());
         self::assertEquals($clonedSmartphone, $smartphone);
+        self::assertNotSame($clonedSmartphone, $smartphone);
     }
 
     public function testCartCanAddClonedProducts(): void
@@ -30,12 +32,14 @@ final class PrototypeTest extends TestCase
         $cart->addProduct($laptop);
 
         $clonedLaptop = clone $laptop;
-
+        $clonedLaptop->setColor('White');
         $cart->addProduct($clonedLaptop);
 
         self::assertCount(2, $cart->getProducts());
-        self::assertEquals($cart->getProducts()[1], $cart->getProducts()[0]);
-        self::assertNotSame($cart->getProducts()[1], $cart->getProducts()[0]);
+        self::assertEquals($cart->getProducts()[1]->getId(), $cart->getProducts()[0]->getId());
+        self::assertEquals($cart->getProducts()[1]->getName(), $cart->getProducts()[0]->getName());
+        self::assertEquals('White', $cart->getProducts()[1]->getColor());
+        self::assertEquals('Default color', $cart->getProducts()[0]->getColor());
     }
 }
 
