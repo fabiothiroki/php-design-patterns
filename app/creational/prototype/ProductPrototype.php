@@ -8,6 +8,7 @@ abstract class ProductPrototype
 {
     protected int $id;
     protected string $name;
+    protected string $color;
 
     public function getId(): int
     {
@@ -17,5 +18,15 @@ abstract class ProductPrototype
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getColor(): string
+    {
+        return $this->color;
+    }
+
+    public function setColor(string $color): void
+    {
+        $this->color = $color;
     }
 }

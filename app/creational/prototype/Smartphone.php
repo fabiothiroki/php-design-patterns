@@ -10,5 +10,6 @@ final class Smartphone extends ProductPrototype
     {
         $this->id = 1;
         $this->name = 'Smartphone';
+        $this->color = 'Default color';
     }
 }
