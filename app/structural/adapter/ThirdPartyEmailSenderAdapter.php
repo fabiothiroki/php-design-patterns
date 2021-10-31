@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\structural\adapter;
 
-final class ThirdPartyEmailAdapter implements EmailAdapter
+final class ThirdPartyEmailSenderAdapter implements EmailSenderAdapter
 {
     public function __construct(private ThirdPartyEmailClient $emailClient)
     {

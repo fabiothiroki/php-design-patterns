@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\structural\adapter;
 
-interface EmailAdapter
+interface EmailSenderAdapter
 {
     public function sendEmail(string $recipient, string $content): void;
 }
