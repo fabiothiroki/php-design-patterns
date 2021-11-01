@@ -10,17 +10,26 @@ use PHPUnit\Framework\TestCase;
 
 final class AdapterTest extends TestCase
 {
-    public function testAwsAdapterUsesCorrectClient(): void
+    public function testThirdPartyEmailSenderAdapterAdapterUsesCorrectClient(): void
     {
-        $awsClient = $this->createMock(ThirdPartyEmailClient::class);
+        $emailClient = $this->createMock(ThirdPartyEmailClient::class);
 
-        $emailAdapter = new ThirdPartyEmailSenderAdapter($awsClient);
+        $emailAdapter = new ThirdPartyEmailSenderAdapter($emailClient);
 
-        $awsClient->expects($this->once())
+        $emailClient->expects($this->once())
             ->method('sendEmail');
 
         $emailAdapter->sendEmail(
-            'I love design patterns',
-            'email@emal.com');
+            'email@email.com',
+            'I love design patterns');
+    }
+
+    public function testThirdPartyClient(): void
+    {
+        $emailClient = new ThirdPartyEmailClient('apiKey', 'region');
+        $emailClient->sendEmail('email@email.com', 'I love design patterns');
+
+        $this->expectOutputRegex('/Using apiKey apiKey and region region/');
+        $this->expectOutputRegex('/Sending email to email@email.com and content I love design patterns/');
     }
 }

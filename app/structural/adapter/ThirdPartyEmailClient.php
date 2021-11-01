@@ -17,6 +17,6 @@ class ThirdPartyEmailClient
         string $content,
     ): void {
         echo sprintf("Using apiKey %s and region %s", $this->apiKey, $this->region);
-        echo sprintf("Sending email to %s with and content %s", $recipient, $content);
+        echo sprintf("Sending email to %s and content %s", $recipient, $content);
     }
 }
