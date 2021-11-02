@@ -17,7 +17,8 @@ final class AdapterTest extends TestCase
         $emailAdapter = new ThirdPartyEmailSenderAdapter($emailClient);
 
         $emailClient->expects($this->once())
-            ->method('sendEmail');
+            ->method('sendEmail')
+            ->with('email@email.com', 'I love design patterns');
 
         $emailAdapter->sendEmail(
             'email@email.com',
