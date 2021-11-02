@@ -5,3 +5,6 @@ A collection of design patterns written in PHP
 
 ## Creational
 - [Prototype](app/creational/prototype)
+
+## Structural
+- [Adapter](app/structural/adapter)
